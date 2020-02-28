@@ -34,8 +34,14 @@ private:
     NavigationViewItemHelper<NavigationViewItemPresenter> m_helper{ this };
     tracker_ref<winrt::Grid> m_contentGrid{ this };
     tracker_ref<winrt::Grid> m_expandCollapseChevron{ this };
+    tracker_ref<winrt::ContentPresenter> m_iconContentPresenter{ this };
 
     winrt::event_token m_expandCollapseChevronTappedToken{};
 
     double m_leftIndentation{ 0 };
+
+    void OnDataContextPropertyChanged(winrt::IInspectable const& sender, const winrt::DataContextChangedEventArgs& args);
+    void OnContentPropertyChanged(const winrt::DependencyObject& sender, const winrt::DependencyProperty& args);
+    winrt::FrameworkElement::DataContextChanged_revoker dataContextRevoker{};
+    PropertyChanged_revoker contentChangedRevoker{};
 };

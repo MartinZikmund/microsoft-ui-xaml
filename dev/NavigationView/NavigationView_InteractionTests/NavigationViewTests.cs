@@ -4179,6 +4179,22 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
             }
         }
 
+        [TestMethod]
+        [TestProperty("TestSuite", "D")]
+        public void VerifyExpandCollpaseFunctionality()
+        {
+            var testScenarios = RegressionTestScenario.BuildHierarchicalNavRegressionTestScenarios();
+            foreach (var testScenario in testScenarios)
+            {
+                using (var setup = new TestSetupHelper(new[] { "NavigationView Tests", testScenario.TestPageName }))
+                {
+                    var firstItem = FindElement.ByName("MI1");
+                    InputHelper.LeftClick(firstItem);
+                    Wait.ForIdle();
+                }
+            }
+        }
+
         private void EnsurePaneHeaderCanBeModifiedHelper(RegressionTestType navviewMode)
         {
             if (!PlatformConfiguration.IsOsVersionGreaterThanOrEqual(OSVersion.Redstone2))
@@ -4317,7 +4333,9 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
     {
         LeftNav = 1,
         TopNav = 2,
-        LeftNavRS4 = 4
+        LeftNavRS4 = 4,
+        HierarchyMarkup = 8,
+        HierarchyDatabinding = 16
     }
     class RegressionTestScenario
     {
@@ -4342,6 +4360,10 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
         {
             return BuildTestScenarios(RegressionTestType.LeftNav | RegressionTestType.TopNav);
         }
+        public static List<RegressionTestScenario> BuildHierarchicalNavRegressionTestScenarios()
+        {
+            return BuildTestScenarios(RegressionTestType.HierarchyMarkup | RegressionTestType.HierarchyDatabinding);
+        }
         private static List<RegressionTestScenario> BuildTestScenarios(RegressionTestType types)
         {
             Dictionary<RegressionTestType, RegressionTestScenario> map =
@@ -4349,6 +4371,8 @@ namespace Windows.UI.Xaml.Tests.MUXControls.InteractionTests
             {
                     { RegressionTestType.LeftNav, new RegressionTestScenario("NavigationView Test", isLeftnavTest: true, isUsingRS4Style: false)},
                     { RegressionTestType.TopNav, new RegressionTestScenario("NavigationView TopNav Test", isLeftnavTest: false, isUsingRS4Style: false)},
+                    { RegressionTestType.HierarchyMarkup, new RegressionTestScenario("HierarchicalNavigationView Markup Test", isLeftnavTest: false, isUsingRS4Style: false)},
+                    { RegressionTestType.HierarchyDatabinding, new RegressionTestScenario("HierarchicalNavigationView DataBinding Test", isLeftnavTest: false, isUsingRS4Style: false)},
             };
 
             List<RegressionTestScenario> scenarios = new List<RegressionTestScenario>();

@@ -4225,9 +4225,9 @@ winrt::NavigationViewItemBase NavigationView::ResolveContainerForItem(const winr
     args->Data(item);
     args->Index(index);
 
-    if (auto item = m_navigationViewItemsFactory.get()->GetElement(static_cast<winrt::ElementFactoryGetArgs>(*args)))
+    if (auto container = m_navigationViewItemsFactory.get()->GetElement(static_cast<winrt::ElementFactoryGetArgs>(*args)))
     {
-        if (auto nvib = item.try_as<winrt::NavigationViewItemBase>())
+        if (auto nvib = container.try_as<winrt::NavigationViewItemBase>())
         {
             return nvib;
         }

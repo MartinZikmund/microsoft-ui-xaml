@@ -36,7 +36,50 @@ void NavigationViewItemPresenter::OnApplyTemplate()
         navigationViewItem->UpdateVisualStateNoTransition();
     }
 
+    //Test
+    if (auto const iconContentPresenter = GetTemplateChildT<winrt::ContentPresenter>(L"Icon", *this))
+    {
+        m_iconContentPresenter.set(iconContentPresenter);
+        dataContextRevoker = iconContentPresenter.DataContextChanged(winrt::auto_revoke, { this, &NavigationViewItemPresenter::OnDataContextPropertyChanged });
+        contentChangedRevoker = RegisterPropertyChanged(iconContentPresenter, winrt::ContentPresenter::ContentProperty(), { this, &NavigationViewItemPresenter::OnContentPropertyChanged });
+    }
+
     UpdateMargin();
+}
+
+void NavigationViewItemPresenter::OnContentPropertyChanged(const winrt::DependencyObject& sender, const winrt::DependencyProperty& args)
+{
+    winrt::hstring TESTNAME = L"TESTNAME";
+    if (auto itemName = GetNavigationViewItem())
+    {
+        TESTNAME = itemName->Name();
+    }
+    if (auto const iconContentPresenter = m_iconContentPresenter.get())
+    {
+        auto const testcontent = iconContentPresenter.Content();
+        if (iconContentPresenter.Content() != Icon())
+        {
+            iconContentPresenter.Content(nullptr);
+        }
+    }
+}
+
+void NavigationViewItemPresenter::OnDataContextPropertyChanged(winrt::IInspectable const& sender, const winrt::DataContextChangedEventArgs& args)
+{
+    winrt::hstring TESTNAME = L"TESTNAME";
+    auto const dataContext = args.NewValue();
+    if (auto itemName = GetNavigationViewItem())
+    {
+        TESTNAME = itemName->Name();
+    }
+    //if(auto const iconContentPresenter = m_iconContentPresenter.get())
+    //{
+    //    auto const testcontent = iconContentPresenter.Content();
+    //    if (!iconContentPresenter.Content() && args.NewValue())
+    //    {
+    //        iconContentPresenter.DataContext(nullptr);
+    //    }
+    //}
 }
 
 winrt::UIElement NavigationViewItemPresenter::GetSelectionIndicator()

@@ -246,6 +246,8 @@ void NavigationViewItem::SuggestedToolTipChanged(winrt::IInspectable const& newC
 
 void NavigationViewItem::OnIconPropertyChanged(const winrt::DependencyPropertyChangedEventArgs& args)
 {
+    auto const name = Name();
+    auto const icon = Icon();
     UpdateVisualStateNoTransition();
 }
 
@@ -528,7 +530,6 @@ void NavigationViewItem::SetRepeaterVisibilityAndUpdatePositionIfRequired(bool s
 
     auto visibility = shouldShowRepeater ? winrt::Visibility::Visible : winrt::Visibility::Collapsed;
     m_repeater.get().Visibility(visibility);
-
 
     if (ShouldRepeaterShowInFlyout() && shouldShowRepeater)
     {

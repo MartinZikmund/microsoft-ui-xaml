@@ -29,6 +29,50 @@ namespace MUXControlsTestApp
         }
     }
 
+            //        <muxcontrols:NavigationViewItem Content = "Menu Item 1" x:Name="MI1" Icon="Home" SelectsOnInvoked="False">
+            //        <muxcontrols:NavigationViewItem.MenuItems>
+            //            <muxcontrols:NavigationViewItem Content = "Menu Item 2" Icon="Save" x:Name="MI2" SelectsOnInvoked="False">
+            //                <muxcontrols:NavigationViewItem.MenuItems>
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 3" Icon="Paste" x:Name="MI3" />
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 4" Icon="Cut" x:Name="MI4" />
+            //                </muxcontrols:NavigationViewItem.MenuItems>
+            //            </muxcontrols:NavigationViewItem>
+            //        </muxcontrols:NavigationViewItem.MenuItems>
+            //    </muxcontrols:NavigationViewItem>
+            //    <muxcontrols:NavigationViewItem Content = "Menu Item 5 (Selectable)" x:Name="MI5" SelectsOnInvoked="True">
+            //        <muxcontrols:NavigationViewItem.MenuItems>
+            //            <muxcontrols:NavigationViewItem Content = "Menu Item 6 (Selectable)" Icon="Save" x:Name="MI6" SelectsOnInvoked="True">
+            //                <muxcontrols:NavigationViewItem.MenuItems>
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 7" Icon="Paste" x:Name="MI7" />
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 8" Icon="Cut" x:Name="MI8" />
+            //                </muxcontrols:NavigationViewItem.MenuItems>
+            //            </muxcontrols:NavigationViewItem>
+            //        </muxcontrols:NavigationViewItem.MenuItems>
+            //    </muxcontrols:NavigationViewItem>
+            //    <muxcontrols:NavigationViewItem Content = "Menu Item 9" Icon="Save" x:Name="MI9"/>
+            //    <muxcontrols:NavigationViewItem Content = "Menu Item 10" x:Name="MI10" SelectsOnInvoked="False">
+            //        <muxcontrols:NavigationViewItem.MenuItems>
+            //            <muxcontrols:NavigationViewItemHeader Content = "HEADER 2" />
+            //            < muxcontrols:NavigationViewItem Content = "Menu Item 11" Icon="Save" x:Name="MI11" SelectsOnInvoked="False">
+            //                <muxcontrols:NavigationViewItem.MenuItems>
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 12" Icon="Paste" x:Name="MI12" />
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 13" Icon="Cut" x:Name="MI13" />
+            //                </muxcontrols:NavigationViewItem.MenuItems>
+            //            </muxcontrols:NavigationViewItem>
+            //        </muxcontrols:NavigationViewItem.MenuItems>
+            //    </muxcontrols:NavigationViewItem>
+            //    <muxcontrols:NavigationViewItem Content = "Menu Item 14" x:Name="MI14" SelectsOnInvoked="False">
+            //        <muxcontrols:NavigationViewItem.MenuItems>
+            //            <muxcontrols:NavigationViewItem Content = "Menu Item 15 (Selectable)" Icon="Save" x:Name="MI15">
+            //                <muxcontrols:NavigationViewItem.MenuItems>
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 16" Icon="Paste" x:Name="MI16" />
+            //                    <muxcontrols:NavigationViewItem Content = "Menu Item 17" Icon="Cut" x:Name="MI17" />
+            //                </muxcontrols:NavigationViewItem.MenuItems>
+            //            </muxcontrols:NavigationViewItem>
+            //        </muxcontrols:NavigationViewItem.MenuItems>
+            //    </muxcontrols:NavigationViewItem>
+            //</muxcontrols:NavigationView.MenuItems>
+
     public sealed partial class HierarchicalNavigationViewDataBinding : Page
     {
 
